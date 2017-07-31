@@ -24,7 +24,7 @@ epub: markdown
 	pandoc -s $(filename).md --normalize --smart -t epub -o $(filename).epub \
 		--epub-metadata $(include_dir)/metadata.xml \
 		--epub-stylesheet epub.css \
-		--epub-cover-image img/cover.png \
+		--epub-cover-image img/growth.jpg \
 		--title-prefix $(title) \
 		--normalize \
 		--smart \
@@ -42,6 +42,7 @@ pdf: markdown
 	# Then symlink it: ln -s /path/to/pdflatex /usr/local/bin
 	pandoc -s $(filename).md -o $(filename).pdf \
 		--title-prefix $(title) \
+		--listings -H listings-setup.tex \
 		--template=template/template.tex \
 		--normalize \
 		--smart \
